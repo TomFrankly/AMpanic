@@ -1,0 +1,92 @@
+@import url(http://fonts.googleapis.com/css?family=Knewave);
+
+body {
+	background: url(../img/gplaypattern.png) repeat;
+}
+
+#container {
+	background: url(../img/dark_geometric.png) repeat;
+	border: 1px solid black;
+	border-radius: 15px;
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	-moz-box-shadow: 0 8px 6px -6px black;
+	box-shadow: 0 8px 10px -3px #444;
+	padding: 10px;
+}
+
+.index {
+	margin: 150px auto;
+	width: 700px;
+}
+
+.jobs {
+	margin: 40px auto;
+	width: 900px;
+}
+
+.jobs > p {
+	color: #eee;
+}
+
+.title {
+	font-family: 'Knewave', cursive;
+	font-size: 50px;
+	color: #7DF087;
+	margin-left: 280px;
+	text-shadow: 1px 1px black, 2px 2px #eee;
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+
+.sub {
+	margin-left: 38.5%;
+	margin-bottom: 10px;
+	display: block;
+	color: #eee;
+}
+
+.notify {
+	background-color: #FF8DAE;
+	border: 1px solid red;
+	padding: 7px;
+	color: #333;
+}
+
+#container td {
+	color: #eee;
+}
+
+a.nav {
+	color: #eee;
+	background-color: #CA0000;
+	text-shadow: 1px 1px black;
+	border-radius: 7px;
+	padding: 5px;
+	text-decoration: none;
+	box-shadow: 1px 1px 0 0 #777;
+}
+
+a {
+	text-decoration: none;
+}
+
+a.nav:hover {
+	background-color: red;
+	box-shadow: 2px 2px 0 0 #777;
+	position: relative;
+	top: -1px;
+	left: -1px;
+}
+
+form {
+	margin-top: 10px;
+}
+
+.sent_yes {
+	background-color: green;
+}
+
+.sent_no {
+	background-color: #CA0000;
+}
+
