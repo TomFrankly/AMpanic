@@ -55,7 +55,7 @@ if ($submit) {
 
 	$time = $hour . ":" . $_POST['minute'];
 
-	$timezone = $_POST['timezone'];
+	$timezone = mysql_real_escape_string(trim(strip_tags($_POST['timezone'])));
 
 	// A tiny bit of security to make sure the database doesn't get overloaded
 	$result = mysql_query("SELECT * FROM emails") or die("Couldn't select the table");
