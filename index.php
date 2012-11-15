@@ -1,3 +1,11 @@
+<?php
+
+// start the session
+session_start();
+
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,8 +22,16 @@
 
 	<div id="container" class="index">
 	
-		<h1 class="title">PopFly</h1>
+		<h1 class="title">AMpanic</h1>
 		<a href="index.php"><span class="sub">A Simple Email Scheduler</span></a>
+		
+		<?php
+
+				// check if the user is logged in
+		if (isset($_SESSION['username']))
+		{
+			
+			?>
 	
 		<a href="jobs.php" class="nav">Scheduled Jobs</a>
 	
@@ -143,6 +159,43 @@ if ($submit) {
 		</form>
 
 	</div>
+	
+		      <?php
+
+}
+
+// if the user isn't logged in, tell them so
+else {	
+		?>
+		
+		<h3>Please log in to your account.</h3>
+		<form action="index.php" method="POST">
+			<table>
+		        <tr>
+		            <td>
+		            Address to send to:
+		            </td>
+		            <td>
+		            <input type="text" name="username"/>
+		            </td>
+		        </tr>
+		        <tr>
+		            <td>
+		            Your message:
+		            </td>
+		            <td>
+		            <input type="password" name="password"/>
+		            </td>
+		        </tr>
+		    </table>
+		    <p></p>
+            <input type="submit" name="submit" value="Schedule!" />
+		</form>
+		
+		<?php
+}
+
+?> 
 	
 </body>
 
