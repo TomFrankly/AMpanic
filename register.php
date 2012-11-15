@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="keywords" content="email scheduling" />
 <meta name="description" content="Schedule an email." />
-<title>PopFly - schedule an email</title>
+<title>AMpanic - schedule an email</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link href='http://fonts.googleapis.com/css?family=Racing+Sans+One' rel='stylesheet' type='text/css'>
 <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
@@ -16,6 +16,7 @@
 	
 		<h1 class="title">AMpanic</h1>
 		<a href="index.php"><span class="sub">A Simple Email Scheduler</span></a>
+		<a href="index.php" class="nav">Home</a>
 		
 <?php
 
@@ -25,7 +26,7 @@ $submit = $_POST['submit'];
 if ($submit) 
 {
 	// connect to the database
-	require_once "connect.php";
+	require_once "includes/connect.php";
 	
 	// declare variables and match them to form data
 	$username = mysql_real_escape_string(trim(strip_tags($_POST['username']))); 
@@ -33,6 +34,7 @@ if ($submit)
 	$password = mysql_real_escape_string(trim(strip_tags($_POST['password'])));
 	$repeatPassword = mysql_real_escape_string(trim(strip_tags($_POST['repeatpassword'])));
 	
+	date_default_timezone_set('America/Chicago');
 	$date = date("Y-m-d");
 	
 	$email = mysql_real_escape_string(trim(strip_tags($_POST['email'])));
@@ -77,7 +79,7 @@ if ($submit)
 					// check that the email is valid and that it's from ISU
 					$pattern = "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$";
 					
-					if (eregi($pattern, $email))
+					if ($count2 == 0)
 					{
 						list($mailName, $mailDomain) = explode("@", $email);
 						if ($count2 == 0)
@@ -94,9 +96,7 @@ if ($submit)
 							// insert all information into the database to register the user (they won't have an active account yet)
 							$queryReg = mysql_query("
 							
-							INSERT INTO users VALUES ('','$username','$password','$email','$date','$random')
-							
-					s		") or die("Couldn't insert data.");
+							INSERT INTO users VALUES ('','$username','$password','$email','$date','$random')") or die("Couldn't insert data.");
 							
 							
 							?>
@@ -105,7 +105,7 @@ if ($submit)
 									  padding: 4px;
 									  text-align: center;
 									  color: #fff;
-				  					  margin-top: -3px;">You have been registered! You can now log in.<a href="index.php" style="color: #fff;">Return to home.</a></p>
+				  					  margin-top: -3px;">You have been registered! You can now log in. <a href="index.php" style="color: red;">Return to home.</a></p>
 
 							<?php
 							

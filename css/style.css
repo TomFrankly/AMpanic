@@ -4,6 +4,10 @@ body {
 	background: url(../img/gplaypattern.png) repeat;
 }
 
+p {
+	color: #fff;
+}
+
 #container {
 	background: url(../img/dark_geometric.png) repeat;
 	border: 1px solid black;
@@ -32,7 +36,7 @@ body {
 	font-family: 'Knewave', cursive;
 	font-size: 50px;
 	color: #7DF087;
-	margin-left: 280px;
+	margin-left: 255px;
 	text-shadow: 1px 1px black, 2px 2px #eee;
 	margin-top: -10px;
 	margin-bottom: 10px;

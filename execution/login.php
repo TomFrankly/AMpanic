@@ -4,7 +4,7 @@
 session_start();
 
 // connect to the MySQL server
-require_once "connect.php";
+require_once "../includes/connect.php";
 
 // take in the username and password from the form and store them in vars
 $username = mysql_real_escape_string(trim(strip_tags($_POST['username'])));
@@ -99,7 +99,7 @@ if ($username && $password)
 				// Redirect the user back.
 				function reDirect() {
 					
-					setTimeout('window.location = "index.php"', 1250);
+					setTimeout('window.location = "../index.php"', 1250);
 				return;
 				}
 				</script>
@@ -121,16 +121,16 @@ if ($username && $password)
 			<?php	
 		}
 		else
-			echo "Incorrect password. <a href=\"index.php\">Return to home.</a>";
+			echo "Incorrect password. <a href=\"../index.php\">Return to home.</a>";
 	}
 	else
-		die("User does not exist. <a href=\"index.php\">Return to home.</a>");
+		die("User does not exist. <a href=\"../index.php\">Return to home.</a>");
 	
 	
 	
 }
 else
-	die("Please enter a username and password <a href=\"index.php\">Return to home.</a>");
+	die("Please enter a username and password <a href=\"../index.php\">Return to home.</a>");
 
 ?>
 

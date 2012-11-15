@@ -12,7 +12,7 @@ session_start();
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="keywords" content="email scheduling" />
 <meta name="description" content="Schedule an email." />
-<title>PopFly - schedule an email</title>
+<title>AMpanic - schedule an email</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link href='http://fonts.googleapis.com/css?family=Racing+Sans+One' rel='stylesheet' type='text/css'>
 <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
@@ -34,6 +34,7 @@ session_start();
 			?>
 	
 		<a href="jobs.php" class="nav">Scheduled Jobs</a>
+		<a href="execution/logout.php" class="nav">Logout</a>
 	
 		<?php
 
@@ -73,6 +74,8 @@ if ($submit) {
 
 	$timezone = mysql_real_escape_string(trim(strip_tags($_POST['timezone'])));
 
+	$user = $_SESSION['username'];
+
 	// A tiny bit of security to make sure the database doesn't get overloaded
 	$result = mysql_query("SELECT * FROM emails") or die("Couldn't select the table");
 
@@ -80,7 +83,7 @@ if ($submit) {
 
 	// insert data into database
 	if ($num_rows < 100) {
-		$query = mysql_query("INSERT INTO emails VALUES ('', '$address', '$message', '$time', '$timezone', 'No') ") or die("Couldn't insert data.");
+		$query = mysql_query("INSERT INTO emails VALUES ('', '$address', '$message', '$time', '$timezone', '$user', 'No') ") or die("Couldn't insert data.");
 	}
 
 	// Notify the user that the email has been scheduled
@@ -157,8 +160,6 @@ if ($submit) {
 		    <p></p>
             <input type="submit" name="submit" value="Schedule!" />
 		</form>
-
-
 	
 		      <?php
 
@@ -167,6 +168,8 @@ if ($submit) {
 // if the user isn't logged in, tell them so
 else {	
 		?>
+		
+		<a href="register.php" class="nav">Register</a>
 		
 		<h3 class="login">Please log in to your account.</h3>
 		<form action="execution/login.php" method="POST">
