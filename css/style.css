@@ -56,6 +56,10 @@ body {
 	color: #eee;
 }
 
+h3.login {
+	color: #fff;
+}
+
 a.nav {
 	color: #eee;
 	/* this is a friggin comment and now it's longer */

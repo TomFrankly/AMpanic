@@ -158,7 +158,7 @@ if ($submit) {
             <input type="submit" name="submit" value="Schedule!" />
 		</form>
 
-	</div>
+
 	
 		      <?php
 
@@ -168,12 +168,12 @@ if ($submit) {
 else {	
 		?>
 		
-		<h3>Please log in to your account.</h3>
-		<form action="index.php" method="POST">
+		<h3 class="login">Please log in to your account.</h3>
+		<form action="execution/login.php" method="POST">
 			<table>
 		        <tr>
 		            <td>
-		            Address to send to:
+		            Username:
 		            </td>
 		            <td>
 		            <input type="text" name="username"/>
@@ -181,7 +181,7 @@ else {
 		        </tr>
 		        <tr>
 		            <td>
-		            Your message:
+		            Password:
 		            </td>
 		            <td>
 		            <input type="password" name="password"/>
@@ -189,13 +189,15 @@ else {
 		        </tr>
 		    </table>
 		    <p></p>
-            <input type="submit" name="submit" value="Schedule!" />
+            <input type="submit" name="login" value="Log In" />
 		</form>
 		
 		<?php
 }
 
 ?> 
+
+	</div>
 	
 </body>
 
