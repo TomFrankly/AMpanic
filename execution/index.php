@@ -1,0 +1,1 @@
+Silence is golden. <a href="../index.php">Return home</a>

@@ -76,12 +76,11 @@ if ($submit)
 				else
 				{
 					
-					// check that the email is valid and that it's from ISU
-					$pattern = "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$";
-					
-					if ($count2 == 0)
+					// check that the email is valid
+					if (filter_var($email, FILTER_VALIDATE_EMAIL))
 					{
-						list($mailName, $mailDomain) = explode("@", $email);
+
+						// check that it's not already in use
 						if ($count2 == 0)
 						{
 							
@@ -96,16 +95,36 @@ if ($submit)
 							// insert all information into the database to register the user (they won't have an active account yet)
 							$queryReg = mysql_query("
 							
-							INSERT INTO users VALUES ('','$username','$password','$email','$date','$random')") or die("Couldn't insert data.");
+							INSERT INTO users VALUES ('','$username','$password','$email','$date','$random','0')") or die("Couldn't insert data.");
+
+							// store the ID in a variable which will be put in the activation URL
+							$lastId = mysql_insert_id();
+							
+							// send activation email
+							$to = $email;
+							$subject = "Activate your account on AMpanic";
+							$headers = "From: admin@thomasjfrank.com";
+							$server = "174.120.31.190";
+
+// this creates the email
+// tab structure is messed up here because the whitespace would make the email look really bad
+$body = "
+							
+Hello $fullName,\n\n
+							
+You need to active your account on AMpabnic before you can access the student-only portion of the site. You can activate your account by clicking the link below:
+http://www.thomasjfrank.com/AMpanic2/execution/activate.php?id=$lastId&code=$random \n\n
+							
+Have a great day!
+							
+";
+							
+							//function to send mail
+							mail($to, $subject, $body, $headers);
 							
 							
 							?>
-							<p style="background-color: #362bcc; 
-									  border: 1px solid blue;
-									  padding: 4px;
-									  text-align: center;
-									  color: #fff;
-				  					  margin-top: -3px;">You have been registered! You can now log in. <a href="index.php" style="color: red;">Return to home.</a></p>
+							<p class="notify">You have been registered! Before you can log in, you need to activate your account through the link that was just sent to the email you registered with. <a href="index.php">Return to home.</a></p>
 
 							<?php
 							
@@ -115,24 +134,14 @@ if ($submit)
 						else
 						{
 							?>
-							<p style="background-color: #d33; 
-									  border: 1px solid red;
-									  padding: 4px;
-									  text-align: center;
-									  color: #fff;
-				  					  margin-top: -3px;">Please enter a valid email address that is not already in use.</p>
+							<p class="notify">That email is already taken! Please use another one.</p>
 				  					  <?php	
 						}
 					}
 					else
 					{
 						?>
-							<p style="background-color: #d33; 
-									  border: 1px solid red;
-									  padding: 4px;
-									  text-align: center;
-									  color: #fff;
-				  					  margin-top: -3px;">Please enter a valid email address that is not already in use.</p>
+							<p class="notify">Please enter a valid email address.</p>
 				  					  <?php		
 					}
 					
@@ -144,24 +153,14 @@ if ($submit)
 		else
 		{
 			?>
-				<p style="background-color: #d33; 
-						  border: 1px solid red;
-						  padding: 4px;
-						  text-align: center;
-						  color: #fff;
-	  					  margin-top: -3px;">Your passwords do not match.</p>
+				<p class="notify">Your passwords do not match.</p>
 			<?php
 		}
 	}
 	else 
 	{
 		?>
-			<p style="background-color: #d33; 
-					  border: 1px solid red;
-					  padding: 4px;
-					  text-align: center;
-					  color: #fff;
-  					  margin-top: -3px;">Please fill in <strong>all</strong> fields!</p>
+			<p class="notify">Please fill in <strong>all</strong> fields!</p>
   		<?php
 	}
 	

@@ -1,0 +1,8 @@
+[15-Nov-2012 19:47:57 UTC] PHP Warning:  date() [<a href='function.date'>function.date</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Chicago' for 'CST/-6.0/no DST' instead in /home/thomas/public_html/AMpanic2/register.php on line 36
+[15-Nov-2012 19:47:57 UTC] PHP Deprecated:  Function eregi() is deprecated in /home/thomas/public_html/AMpanic2/register.php on line 80
+[15-Nov-2012 20:26:00 UTC] PHP Deprecated:  Function eregi() is deprecated in /home/thomas/public_html/AMpanic2/register.php on line 81
+[15-Nov-2012 21:05:33 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/thomas/public_html/AMpanic2/jobs.php on line 115
+[15-Nov-2012 21:10:58 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/thomas/public_html/AMpanic2/index.php on line 76
+[15-Nov-2012 21:11:11 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/thomas/public_html/AMpanic2/index.php on line 76
+[15-Nov-2012 21:11:13 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/thomas/public_html/AMpanic2/index.php on line 76
+[15-Nov-2012 21:11:38 UTC] PHP Fatal error:  Call to undefined function dies() in /home/thomas/public_html/AMpanic2/jobs.php on line 69

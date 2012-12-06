@@ -36,7 +36,7 @@ if ($username && $password)
 			
 			if ($activated=='0')
 			{
-				die("Your account is not yet active. Please check your email for an activation link. <a href=\"index.php\">Return to home.</a>");
+				die("<div style=\"width: 400px; margin: 150px auto; padding: 8px; background-color: #FF8DAE; border: 1px solid red; padding: 7px; color: #333; text-align: center;\">Your account is not yet active. Please check your email for an activation link. <a href=\"../index.php\">Return to home.</a></div>");
 				exit();
 			}
 				
@@ -121,16 +121,16 @@ if ($username && $password)
 			<?php	
 		}
 		else
-			echo "Incorrect password. <a href=\"../index.php\">Return to home.</a>";
+			echo "<div style=\"width: 400px; margin: 150px auto; padding: 8px; background-color: #FF8DAE; border: 1px solid red; padding: 7px; color: #333; text-align: center;\">Incorrect password. <a href=\"../index.php\">Return to home.</a></div>";
 	}
 	else
-		die("User does not exist. <a href=\"../index.php\">Return to home.</a>");
+		die("<div style=\"width: 400px; margin: 150px auto; padding: 8px; background-color: #FF8DAE; border: 1px solid red; padding: 7px; color: #333; text-align: center;\">User does not exist. <a href=\"../index.php\">Return to home.</a></div>");
 	
 	
 	
 }
 else
-	die("Please enter a username and password <a href=\"../index.php\">Return to home.</a>");
+	die("<div style=\"width: 400px; margin: 150px auto; padding: 8px; background-color: #FF8DAE; border: 1px solid red; padding: 7px; color: #333; text-align: center;\">Please enter a username and password <a href=\"../index.php\">Return to home.</a></div>");
 
 ?>
 
