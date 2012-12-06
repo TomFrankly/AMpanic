@@ -8,6 +8,14 @@ p {
 	color: #fff;
 }
 
+p, a, span, h2, h3 {
+	font-family: helvetica;
+}
+
+p, a, span {
+	line-height: 22px;
+}
+
 #container {
 	background: url(../img/dark_geometric.png) repeat;
 	border: 1px solid black;
@@ -19,7 +27,7 @@ p {
 }
 
 .index {
-	margin: 150px auto;
+	margin: 40px auto;
 	width: 700px;
 }
 
@@ -43,8 +51,8 @@ p {
 }
 
 .sub {
-	margin-left: 38.5%;
-	margin-bottom: 10px;
+	margin-left: 35.5%;
+	margin-bottom: 17px;
 	display: block;
 	color: #eee;
 }
@@ -73,10 +81,42 @@ a.nav {
 	padding: 5px;
 	text-decoration: none;
 	box-shadow: 1px 1px 0 0 #777;
+	margin-left: 3px;
+}
+
+span.nav {
+	color: #eee;
+	/* this is a friggin comment and now it's longer */
+	background-color: #145E79;
+	text-shadow: 1px 1px black;
+	border-radius: 7px;
+	padding: 5px;
+	text-decoration: none;
+	box-shadow: 1px 1px 0 0 #777;
+	margin-left: 3px;
+}
+
+.bottomlinks {
+	margin-left: 43%;
+	position: relative;
+	top: 40px;
+}
+
+.bottomlinks a {
+	font-size: 13px;
+	color: #555;
+}
+
+.bottomlinks a:hover {
+	text-decoration: underline;
 }
 
 a {
 	text-decoration: none;
+}
+
+h2 {
+	color: #fff;
 }
 
 a.nav:hover {
@@ -98,4 +138,3 @@ form {
 .sent_no {
 	background-color: #CA0000;
 }
-

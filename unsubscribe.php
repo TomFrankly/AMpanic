@@ -82,6 +82,12 @@ if ($submit) {
 		    <p></p>
             <input type="submit" name="submit" value="Disallow My Email" />
 		</form>
+		
+		<div class="bottomlinks">
+			<a href="about.php">About</a>
+			<a href="faq.php">FAQ</a>
+			<a href="contact.php">Contact</a>
+		</div>
 
 	</div>
 	
